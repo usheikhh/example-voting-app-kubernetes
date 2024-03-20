@@ -1,0 +1,19 @@
+#pod for database
+apiVersion: v1 
+kind: Pod
+metadata:
+  name: postgres-pod #name of pod
+  labels: 
+    name: postgres-pod #label name
+    app: demo-voting-app 
+spec:
+  containers:
+    - name: postgres #name of the container
+      image: postgres
+      ports: 
+        - containerPort: 5432 #default port for postgres
+      env: #to specify username and pass for database
+        - name: POSTGRES_USER
+          value: "postgres"
+        - name: "POSTGRES_PASSWORD"
+          value: "postgres"
